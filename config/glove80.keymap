@@ -30,9 +30,11 @@
 
 #define LAYER_Lower 0
 
-#
+#endif 
 
-endif {
+/* Keymap usualy messes endif above and merges it with line below */
+
+/{
     /* Custom Device-tree */
     /* Glove80 system behavior & macros */
 
