@@ -65,17 +65,6 @@
             quick-release;
         };
 
-        llsk: llsk {
-            compatible = "zmk,behavior-sticky-key";
-            label = "LLSK";
-            bindings = <&none>;
-            #binding-cells = <1>;
-            quick-release;
-            lazy;
-            ignore-modifiers;
-            release-after-ms = <5000>;
-        };
-
         hrm_l: hrm_l {
             compatible = "zmk,behavior-hold-tap";
             label = "HRM_L";
