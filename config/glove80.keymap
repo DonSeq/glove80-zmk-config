@@ -19,6 +19,8 @@
 #define MAGIC 2
 #define FACTORY_TEST 3
 
+&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE>; };
+
 / {
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
@@ -88,9 +90,9 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             flavor = "balanced";
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 66 67 68 65 64>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 66 67 68 65 64 52 69 70 52 53 54 70 71>;
             hold-trigger-on-release;
-            require-prior-idle-ms = <50>;
+            require-prior-idle-ms = <60>;
             retro-tap;
         };
 
@@ -104,7 +106,7 @@
             quick-tap-ms = <175>;
             flavor = "balanced";
             hold-trigger-on-release;
-            require-prior-idle-ms = <50>;
+            require-prior-idle-ms = <60>;
             retro-tap;
             hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79>;
         };
@@ -154,6 +156,42 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        dash {
+            bindings = <&kp MINUS>;
+            key-positions = <25 26>;
+            require-prior-idle-ms = <65>;
+            layers = <0>;
+            timeout-ms = <65>;
+        };
+
+        under {
+            bindings = <&kp UNDER>;
+            key-positions = <37 38>;
+            require-prior-idle-ms = <65>;
+            layers = <0>;
+            timeout-ms = <65>;
+        };
+
+        eq {
+            bindings = <&kp EQUAL>;
+            key-positions = <38 37 36>;
+            require-prior-idle-ms = <65>;
+            layers = <0>;
+            timeout-ms = <65>;
+        };
+
+        pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <25 26 24>;
+            require-prior-idle-ms = <65>;
+            layers = <0>;
+            timeout-ms = <65>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -167,12 +205,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp F1            &kp F2             &kp F3             &kp F4               &kp F5                                                                                                                  &kp F6                 &kp F7                     &kp F8           &kp F9            &kp F10
-&kp GRAVE         &kp N1             &kp N2             &kp N3               &kp N4                &kp N5                                                                                    &kp N6  &kp N7                 &kp N8                     &kp N9           &kp N0            &kp MINUS
-&kp TAB           &kp Q              &kp W              &kp E                &kp R                 &kp T                                                                                     &kp Y   &kp U                  &kp I                      &kp O            &kp P             &kp BACKSPACE
-&mt LCTRL ESCAPE  &hrm_l LEFT_GUI A  &hrm_l LEFT_ALT S  &hrm_l_fast LSHFT D  &hrm_l LCTRL F        &kp G                                                                                     &kp H   &hrm_r RCTRL J         &hrm_r_fast RIGHT_SHIFT K  &kp L            &kp SEMI          &kp SQT
-&shift_dance      &kp Z              &kp X              &kp C                &kp V                 &kp B   &kp LCTRL  &kp LEFT_SHIFT  &layer_td    &kp LGUI    &kp BACKSLASH  &kp EQUAL      &kp N   &kp M                  &kp COMMA                  &kp DOT          &kp FSLH          &kp RIGHT_SHIFT
-&magic 2 0        &kp LESS_THAN      &kp LEFT_BRACE     &kp LEFT_BRACKET     &kp LEFT_PARENTHESIS          &kp BSPC   &lt 1 SPACE     &lt 3 ENTER  &kp DELETE  &lt 1 ENTER    &kp BACKSPACE          &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET          &kp RIGHT_BRACE  &kp GREATER_THAN  &kp RCTRL
+&kp F1            &kp F2         &kp F3          &kp F4               &kp F5                                                                                                                  &kp F6                 &kp F7                     &kp F8           &kp F9            &kp F10
+&kp GRAVE         &kp N1         &kp N2          &kp N3               &kp N4                &kp N5                                                                                    &kp N6  &kp N7                 &kp N8                     &kp N9           &kp N0            &kp MINUS
+&kp TAB           &kp Q          &kp W           &kp E                &kp R                 &kp T                                                                                     &kp Y   &kp U                  &kp I                      &kp O            &kp P             &kp BACKSPACE
+&mt LCTRL ESCAPE  &kp A          &kp S           &hrm_l_fast LSHFT D  &hrm_l LCTRL F        &kp G                                                                                     &kp H   &hrm_r RCTRL J         &hrm_r_fast RIGHT_SHIFT K  &kp L            &kp SEMI          &kp SQT
+&shift_dance      &kp Z          &kp X           &kp C                &kp V                 &kp B   &kp LCTRL  &kp LEFT_SHIFT  &layer_td    &kp LGUI    &kp BACKSLASH  &kp EQUAL      &kp N   &kp M                  &kp COMMA                  &kp DOT          &kp FSLH          &shift_dance
+&magic 2 0        &kp LESS_THAN  &kp LEFT_BRACE  &kp LEFT_BRACKET     &kp LEFT_PARENTHESIS          &kp BSPC   &lt 1 SPACE     &lt 3 ENTER  &kp DELETE  &lt 1 ENTER    &kp BACKSPACE          &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET          &kp RIGHT_BRACE  &kp GREATER_THAN  &kp RCTRL
             >;
         };
 
@@ -200,12 +238,12 @@
 
         code {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&none  &none  &none  &none  &none                                                                         &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none      &none                                                       &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &kp PIPE   &none                                                       &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &kp EQUAL  &kp GREATER_THAN                                            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none      &none             &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                        &none  &none  &none  &none  &none  &none         &none  &none  &none  &none  &none
             >;
         };
 
