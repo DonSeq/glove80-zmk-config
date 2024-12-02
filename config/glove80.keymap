@@ -92,7 +92,7 @@
             flavor = "balanced";
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 66 67 68 65 64 52 69 70 52 53 54 70 71>;
             hold-trigger-on-release;
-            require-prior-idle-ms = <60>;
+            require-prior-idle-ms = <68>;
             retro-tap;
         };
 
@@ -106,9 +106,9 @@
             quick-tap-ms = <175>;
             flavor = "balanced";
             hold-trigger-on-release;
-            require-prior-idle-ms = <60>;
+            require-prior-idle-ms = <68>;
             retro-tap;
-            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79>;
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 56 57 74 73 72 55>;
         };
 
         shift_dance: shift_dance {
@@ -161,7 +161,7 @@
 
         dash {
             bindings = <&kp MINUS>;
-            key-positions = <25 26>;
+            key-positions = <25 26 24>;
             require-prior-idle-ms = <65>;
             layers = <0>;
             timeout-ms = <65>;
@@ -169,7 +169,7 @@
 
         under {
             bindings = <&kp UNDER>;
-            key-positions = <37 38>;
+            key-positions = <37 38 36>;
             require-prior-idle-ms = <65>;
             layers = <0>;
             timeout-ms = <65>;
@@ -177,7 +177,7 @@
 
         eq {
             bindings = <&kp EQUAL>;
-            key-positions = <38 37 36>;
+            key-positions = <67 66 68>;
             require-prior-idle-ms = <65>;
             layers = <0>;
             timeout-ms = <65>;
@@ -185,7 +185,7 @@
 
         pipe {
             bindings = <&kp PIPE>;
-            key-positions = <25 26 24>;
+            key-positions = <48 49 50>;
             require-prior-idle-ms = <65>;
             layers = <0>;
             timeout-ms = <65>;
@@ -221,7 +221,7 @@
 &trans  &kp PAGE_UP         &kp HOME       &kp UP           &kp END          &kp PAGE_DOWN                                                        &kp MINUS  &kp N7                 &kp N8        &kp N9        &kp KP_MULTIPLY  &kp BSPC
 &trans  &kp LC(LEFT_ARROW)  &kp LEFT       &kp DOWN         &kp RIGHT        &kp LC(RIGHT_ARROW)                                                  &kp EQUAL  &kp N4                 &kp N5        &kp N6        &kp FSLH         &none
 &trans  &sk LEFT_GUI        &lsk LEFT_ALT  &lsk LEFT_SHIFT  &lsk LCTRL       &caps_word           &trans  &trans  &to 0   &trans  &none   &trans  &kp PLUS   &kp N1                 &kp N2        &kp N3        &kp KP_ENTER     &none
-&none   &kp LEFT_GUI        &none          &none            &none                                 &trans  &trans  &trans  &trans  &trans  &kp N0             &kp N0                 &kp N0        &kp DOT       &kp KP_ENTER     &none
+&none   &kp LEFT_GUI        &none          &none            &kp DELETE                            &trans  &trans  &trans  &trans  &trans  &kp N0             &kp N0                 &kp N0        &kp DOT       &kp KP_ENTER     &none
             >;
         };
 
@@ -238,12 +238,12 @@
 
         code {
             bindings = <
-&none  &none  &none  &none  &none                                                                         &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none      &none                                                       &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &kp PIPE   &none                                                       &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &kp EQUAL  &kp GREATER_THAN                                            &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none      &none             &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none                        &none  &none  &none  &none  &none  &none         &none  &none  &none  &none  &none
+&none  &none  &none  &none          &none                                                                         &none  &none  &none  &none  &none
+&none  &none  &none  &none          &none      &none                                                       &none  &none  &none  &none  &none  &none
+&none  &none  &none  &kp UNDER      &kp PIPE   &kp MINUS                                                   &none  &none  &none  &none  &none  &none
+&none  &none  &none  &kp LESS_THAN  &kp EQUAL  &kp GREATER_THAN                                            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &kp BACKSLASH  &kp GRAVE  &kp SLASH         &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none          &none                        &none  &none  &none  &none  &none  &none         &none  &none  &none  &none  &none
             >;
         };
 
